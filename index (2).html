@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Mascota - Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fce4ec; 
+        }
+        header {
+            background-color: #90caf9; 
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #a5d6a7; 
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ffccbc; 
+            color: black;
+        }
+        section {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #e3f2fd;
+        }
+        table, th, td {
+            border: 1px solid #bbdefb; 
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #90caf9; 
+            color: white;
+        }
+        footer {
+            background-color: #90caf9;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .register-container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f8bbd0; 
+            border-radius: 4px;
+            background-color: #fce4ec; 
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f48fb1; 
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #f06292; 
+        }
+        p a {
+            color: #1976d2; 
+            text-decoration: none;
+        }
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mi Mascota - Login</h1>
+</header>
+
+<section>
+    <div class="register-container">
+        <h2>Inicio de Sesion</h2>
+        <form action="registro.html" method="POST" onsubmit="registrar(event)">
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Registrar</button>
+            <p><a href="registro.html">¿No tienes una cuenta? Registrate</a></p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>Almachi Domenica</p>
+</footer>
+
+<script>
+    function registrar(event) {
+        event.preventDefault(); // Evita el envío automático del formulario
+
+        const usuario = document.getElementById('usuario').value;
+        const password = document.getElementById('password').value;
+
+        if (localStorage.getItem(usuario)) {
+            alert('Este usuario ya está registrado.');
+        } else {
+            localStorage.setItem(usuario, password);
+            alert('Registro exitoso. Ahora puedes iniciar sesión.');
+            window.location.href = 'Avance 2.html';
+        }
+    }
+</script>
+
+</body>
+</html>

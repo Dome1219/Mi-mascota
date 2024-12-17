@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi mascota</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; 
+            background-image: url('F:/Diseño web/porta_0.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        header {
+            background-color: #a5afd6;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .login {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .login input[type="text"],
+        .login input[type="password"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .login button {
+            background-color: #f48fb1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login button:hover {
+            background-color: #f06292;
+        }
+
+        section {
+            padding: 50px 20px;
+            min-height: 100vh;
+            background-color: #fce4ec;
+        }
+
+        section:nth-child(even) {
+            background-color: #90caf9;
+            color: #333;
+        }
+
+        h2 {
+            color: #e91e63;
+        }
+
+        #inicio table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        #inicio th, #inicio td {
+            padding: 12px;
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        #inicio th {
+            background-color: #f8bbd0; 
+            color: #333;
+        }
+
+        #inicio tr:nth-child(even) {
+            background-color: #e1bee7; 
+        }
+
+        #inicio tr:nth-child(odd) {
+            background-color: #ffffff; 
+        }
+
+ 
+       .registro-button {
+    background-color: #f48fb1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; 
+    }
+
+.   registro-button:hover {
+    background-color: #f06292;
+    }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#porque-adoptar">¿Por qué adoptar?</a>
+        <a href="#tips-cuidado">Tips y cuidado</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="registro-button" onclick="window.location.href='login.html'">Registro</button>
+</header>
+
+<section id="inicio">
+    <h2>Inicio</h2>
+    <p>Mi página de adopción de mascotas es un espacio donde los animales sin hogar encuentran una segunda oportunidad y las personas pueden conectarse con sus futuros compañeros de vida.</p>
+
+    <h3>Tipos de mascotas disponibles</h3>
+    <table>
+        <tr>
+            <th>Tipo de Mascota</th>
+            <th>Edad</th>
+            <th>Disponibilidad</th>
+        </tr>
+        <tr>
+            <td><p>Perros</p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSatwGId2GVSkS6V_5CU9swfS9AhEZJptms3A&s" width="100" height="100"></td>
+            <td>1-5 años</td>
+            <td>Alta</td>
+        </tr>
+        <tr>
+            <td><p>Gatos</p><img src="https://okdiario.com/img/2023/04/10/-es-malo-que-los-gatos-coman-moscas-y-mosquitos-635x358.jpg" width="100" height="100"></td>
+            <td>2-6 años</td>
+            <td>Media</td>
+        </tr>
+        <tr>
+            <td><p>Hamsters</p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_fiqKSrTFdAoprHa9zOumY2MLiLttCl0ciQ&s" width="100" height="100"></td>
+            <td>1-2 años</td>
+            <td>Baja</td>
+        </tr>
+    </table>
+
+    <h3>Requisitos para adoptar</h3>
+    <table>
+        <tr>
+            <th>Requisito</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>Edad mínima</td>
+            <td>18 años</td>
+        </tr>
+        <tr>
+            <td>Identificación</td>
+            <td>Documento oficial</td>
+        </tr>
+        <tr>
+            <td>Visita previa</td>
+            <td>Inspección del hogar</td>
+        </tr>
+    </table>
+
+    <h3>Beneficios de la adopción</h3>
+    <table>
+        <tr>
+            <th>Beneficio</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>Compañía</td>
+            <td>Un amigo fiel para toda la vida</td>
+        </tr>
+        <tr>
+            <td>Salud</td>
+            <td>Las mascotas mejoran tu bienestar emocional</td>
+        </tr>
+        <tr>
+            <td>Responsabilidad</td>
+            <td>Enseñan a ser más responsables</td>
+        </tr>
+    </table>
+</section>
+
+<section id="porque-adoptar">
+    <h2>¿Por qué adoptar?</h2>
+    <p>1. Salvar una vida</p>
+    <p>Adoptar una mascota de un refugio o una organización de rescate le da una segunda oportunidad a un animal que puede estar en condiciones de abandono, maltrato o simplemente esperando un hogar. Al adoptar, estás ayudando a reducir el número de animales sin hogar.</p>
+
+    <p>2. Luchar contra la sobrepoblación animal</p>
+    <p>Los refugios y las protectoras de animales enfrentan constantemente la sobrepoblación. Adoptando en lugar de comprar, ayudas a reducir la demanda de criadores que a menudo no tienen en cuenta el bienestar de los animales.</p>
+
+    <p>3. Variedad de opciones</p>
+    <p>Los refugios no solo tienen perros y gatos, sino que también pueden tener animales de otras especies como conejos, roedores, aves, entre otros. Hay muchas opciones disponibles para que encuentres la mascota que se adapte mejor a tu hogar y estilo de vida.</p>
+
+    <p>4. Menos costos</p>
+    <p>Adoptar una mascota es generalmente más económico que comprar una de una tienda o criador. Los costos de adopción suelen incluir vacunas, esterilización y otros cuidados médicos, lo que reduce los gastos iniciales.</p>
+
+    <p>5. Una mascota agradecida</p>
+    <p>Las mascotas adoptadas suelen ser extremadamente agradecidas por el cariño y la atención que reciben. Están buscando un hogar y un vínculo con su nueva familia, lo que puede generar una relación muy especial.</p>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFY1L1qcDg2oTy9D1gw6bL8SVD3pXD8rAgrQ&s" width="500" height="300">
+</section>
+
+<section id="tips-cuidado">
+    <h2>Tips y cuidado</h2>
+    <p>1. Alimentación adecuada</p>
+    <p>Proporciona una dieta equilibrada según la especie, tamaño, edad y necesidades específicas de tu mascota.</p>
+    <p>Evita darles comida para humanos, especialmente alimentos tóxicos como chocolate, uvas, cebolla y ajo.</p>
+    <p>Mantén siempre agua fresca y limpia a su disposición.</p>
+
+    <p>2. Ejercicio regular</p>
+    <p>Los perros y gatos, así como otras mascotas, necesitan ejercicio diario para mantener su peso ideal y su salud mental.</p>
+    <p>Pasea a los perros al menos dos veces al día y juega con los gatos o mascotas pequeñas para estimularlos física y mentalmente.</p>
+
+    <p>3. Higiene y limpieza</p>
+    <p>Baña a tu mascota según lo recomendado para su especie y raza. Algunos perros necesitan baño mensual, mientras que los gatos suelen mantenerse limpios por sí mismos.</p>
+    <p>Cepilla a las mascotas con regularidad, especialmente si tienen pelaje largo, para evitar enredos y disminuir la caída de pelo en casa.</p>
+    <p>Mantén limpios sus espacios y utensilios, como camas, juguetes y comederos.</p>
+
+    <p>4. Cuidados veterinarios</p>
+    <p>Lleva a tu mascota al veterinario para chequeos regulares. Las vacunas y desparasitaciones son esenciales para prevenir enfermedades.</p>
+    <p>Considera la esterilización para mejorar la salud de la mascota y prevenir la sobrepoblación animal.</p>
+    <p>Observa cualquier cambio en su comportamiento, apetito o energía, ya que podría ser un signo de enfermedad.</p>
+
+    <p>5. Estímulos mentales</p>
+    <p>Proporciona juguetes y actividades para estimular su mente, especialmente si pasas tiempo fuera de casa. Los juegos de inteligencia y juguetes interactivos ayudan a prevenir el aburrimiento.</p>
+    <p>Cambia los juguetes de vez en cuando para mantener su interés.</p>
+    <img src="file:///F:/Dise%C3%B1o%20web/examen%20f/cuidado%20de%20mascota.webp" width="600" height="500">
+</section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Si deseas adoptar, no dudes en contactarnos. Estamos aquí a tu servicio.</p>
+        <p>Email: dvalentina1912.@gmail.com</p>
+        <p>Teléfono: +593 96 983 3412</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTL-PZZ70CvGqyZqqxAY4gnM2KeTbqsDgRzg&s" width="600" height="700">
+    </section>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Mi mascota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fce4ec; 
+        }
+        .register-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #f8bbd0;
+            border-radius: 4px;
+            background-color: #fce4ec;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f48fb1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #f06292;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div class="register-container">
+        <h2>Registro</h2>
+        <form onsubmit="registrarUsuario(event)">
+            <input type="text" id="nombre" placeholder="Nombre de usuario" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <input type="password" id="confirmarPassword" placeholder="Confirmar contraseña" required>
+            <button type="submit">Registrar</button>
+        </form>
+        <p><a href="login.html">¿Ya tienes una cuenta? Inicia sesión</a></p>
+    </div>
+</section>
+
+<script>
+    function registrarUsuario(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const password = document.getElementById('password').value;
+        const confirmarPassword = document.getElementById('confirmarPassword').value;
+
+        // Validación de contraseñas coincidentes
+        if (password !== confirmarPassword) {
+            alert('Las contraseñas no coinciden');
+            return;
+        }
+
+        // Verificar si el usuario ya existe en localStorage
+        if (localStorage.getItem(correo)) {
+            alert('Este correo ya está registrado.');
+            return;
+        }
+
+        const usuario = {
+            nombre: nombre,
+            password: password
+        };
+        localStorage.setItem(correo, JSON.stringify(usuario));
+        alert('Registro exitoso. Ahora puedes iniciar sesión.');
+        window.location.href = 'Avance 2.html';
+    }
+</script>
+
+</body>
+</html>
